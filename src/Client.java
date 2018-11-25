@@ -56,18 +56,9 @@ public class Client {
 		String api="api/gbs/banking/v2.1/accounts/accountId/payments/sct/orders";
 		api=api.replace("accountId",""+userID);
 		String url= BASEURL+""+api;
-		//setto la httpPost
-		/*List<NameValuePair> bonifico= new ArrayList<NameValuePair>();
-		//bonifico.add(new BasicNameValuePair("accountId","14930637"));
-		bonifico.add(new BasicNameValuePair("receiverName",""));
-		bonifico.add(new BasicNameValuePair("description",""));
-		bonifico.add(new BasicNameValuePair("currency",""));
-		bonifico.add(new BasicNameValuePair("amount",""));
-		bonifico.add(new BasicNameValuePair("executionDate",""));*/
 		HttpPost request= new HttpPost(url);
 		request.setHeader("Auth-Schema", AuthSchema);
 		try {
-			//request.setEntity(new UrlEncodedFormEntity(bonifico));
 			HttpResponse response = client.execute(request);
 			return response.getStatusLine().getStatusCode();
 			}
